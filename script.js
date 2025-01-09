@@ -1,6 +1,20 @@
 // DOM ELMS
 const postItElm = document.querySelector('.row')
+const popup = document.getElementById("popup");
+const popupImg = document.getElementById("popupImg");
+const closeBtn = document.querySelector(".close");
+
 //function
+function addPopupListeners() {
+    const images = document.querySelectorAll('.popup-image');
+    images.forEach(img => {
+        img.addEventListener('click', function() {
+            popup.classList.remove = 'none';
+            popupImg.src = this.src;
+        });
+    });
+}
+
 function newCard() {
     postItElm.innerHTML = '';
 
@@ -17,9 +31,20 @@ function newCard() {
                         <img src=${card.url} alt="">
                         <h4>${card.title}</h4>
                     </div>
-                </div>`
-                ;
+                </div>`;
             });
+            addPopupListeners();
         });
 }
 newCard()
+
+//ON CLICK EVENTS
+closeBtn.addEventListener('click', function() {
+    popup.style.display = "none";
+});
+
+window.addEventListener('click', function(event) {
+    if (event.target === popup) {
+        popup.style.display = "none";
+    }
+});
