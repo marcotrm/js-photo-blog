@@ -27,7 +27,6 @@ img{
 
 .pin > img {
     max-width: 30px;
-    min-height: 30px;
 }
 
 .pin{
@@ -35,6 +34,7 @@ img{
     top: 0;
     left: 50%;
     transform: translate(-50%, -25%);
+    z-index: 10;
 }
 /* GENERAL */
 
@@ -64,7 +64,26 @@ main{
 
 .card{
     background-color: white;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 15px;
+    margin-top: 50px;
     position: relative;
 }
 /* MAIN */
+
+/* RESPONSIVE */
+@media screen and (max-width:900px){
+
+    .col{
+        width: calc(100% / 2 - 20px);
+    }
+}
+
+@media screen and (max-width:630px){
+
+    .col{
+        width: calc(100% - 20px);
+    }
+}
+/* RESPONSIVE */
