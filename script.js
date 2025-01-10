@@ -1,5 +1,6 @@
 // DOM ELMS
-
+const btnCloseElm = document.querySelector('.close')
+const overlayElm = document.querySelector('.overlay')
 
 //function
 function newCard() {
@@ -21,8 +22,20 @@ function newCard() {
                     </div>
                 </div>`;
             });
-            addClickEvents()
+
+            const cardsElm = document.querySelectorAll('.card')
+            //ON CLICK EVENTS(after then)
+            cardsElm.forEach((card) => {
+                card.addEventListener('click', () => {
+                    overlayElm.classList.remove('hidden')
+                })
+            })
         });
 }
 newCard()
+
 //ON CLICK EVENTS
+
+btnCloseElm.addEventListener('click', () => {
+    overlayElm.classList.add('hidden')
+})
