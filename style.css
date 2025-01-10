@@ -77,6 +77,10 @@ main{
     cursor: pointer;
 }
 
+.card:hover .pin{
+    display: none;
+}
+
 /* EFFETTO ZOOM */
 .popup-image {
     cursor: pointer;

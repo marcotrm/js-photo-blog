@@ -11,25 +11,33 @@ function newCard() {
         .then(function (response) {
             const infoPostItElm = response.data; 
             infoPostItElm.forEach(card => {
+                console.log(card.url);
                 postItElm.innerHTML += `
                     <div class="col">
                     <div class="card">
                         <div class="pin">
                             <img src="img/pin.svg" alt="pin">
                         </div>
-                        <img src=${card.url} alt="">
+                        <img class="popup" src=${card.url} alt="">
                         <h4>${card.title}</h4>
                     </div>
                 </div>`;
             });
-
             const cardsElm = document.querySelectorAll('.card')
             //ON CLICK EVENTS(after then)
             cardsElm.forEach((card) => {
                 card.addEventListener('click', () => {
-                    overlayElm.classList.remove('hidden')
+                    console.log('Card cliccata')
+
+                    const overlayImgElm = document.getElementById('overlayImage')
+                    const overlayImg = card.querySelector('.popup').src;
+                    overlayImgElm.src = overlayImg;
+
+                    overlayElm.classList.remove('hidden');
+
                 })
             })
+            
         });
 }
 newCard()
