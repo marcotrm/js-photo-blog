@@ -1,10 +1,9 @@
 // DOM ELMS
-const postItElm = document.querySelector('.row')
 
 
 //function
-
 function newCard() {
+    const postItElm = document.querySelector('.row')
     postItElm.innerHTML = '';
 
     axios.get('https://jsonplaceholder.typicode.com/photos?_limit=6')
@@ -22,8 +21,8 @@ function newCard() {
                     </div>
                 </div>`;
             });
+            addClickEvents()
         });
 }
 newCard()
-
 //ON CLICK EVENTS
